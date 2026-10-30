@@ -1,0 +1,162 @@
+/*
+House style:
+Main:green
+Ground: white
+Ink: black
+accent: red
+
+Heading: Georgia, serif
+Body: Arial, sans-serif
+*/
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ header{
+    background-color: green;
+    color: white;
+    padding: 25px;
+    text-align: center;
+ }
+ h1,h2,h3{
+    font-family: Georgia, serif;
+    color: green;
+ }
+
+ nav{
+    background-color: violet;
+    padding: 13px;
+ }
+ nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+ }
+ nav a:hover{
+    color: red;
+ }
+ main{
+    padding: 25px;
+ }
+ footer{
+    background-color: yellowgreen;
+    color: black;
+    text-align: center;
+    padding: 8px;
+ }
+ .page-layout{ 
+   display: grid;
+   grid-template-columns: minmax(0.1fr) 18rem;
+   grid-template-areas: 
+     "header header"
+     "nav nav"
+     "main aside"
+     "footer footer";
+     gap:10px;
+     min-height: 100vh;
+ }
+ /*Assign sections to grid areas*/
+ header{
+      grid-area: header;
+ }
+ nav{
+       grid-area: nav;
+ }
+ main{
+       grid-area: main;
+       min-width:0;
+ }
+ aside{
+       grid-area: aside;
+       background-color: powderblue;
+       border-left: 4px solid #ccc;
+       padding:20px;
+       min-width:0;
+ }
+ footer{
+       grid-area: footer;
+ }
+ nav ul{
+   display: flex;
+   flex-wrap: wrap;
+   list-sytle:none;
+   gap:20px;
+   padding:0px;
+   margin:0px;
+ }
+ nav a{
+   display:block;
+   padding:8px 12px;
+ }
+
+ .card-container{
+   display:flex;
+   flex-wrap:wrap;
+   gap:20px;
+
+ }
+ .card{
+   flex:1 1 200px;
+   min-width:0;
+   background-color: peachpuff;
+   border:2px solid #ccc;
+   padding:20px;
+   border-radius:8px;
+ }
+ .card a{
+   color:green;
+   font-weight:bold;
+ }
+
+ /* Responsive design for smaller screens */
+   @media (max-width:700px){
+      .page-layout{
+         grid-template-columns: minmax(0,1fr);
+         grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+   }
+   nav ul{
+      gap:8px;
+   }
+   main,
+   aside{
+      min-width:0;
+   }
+   .card-container{
+      flex-direction:column;
+   }
+   .card{
+      box-sizing:border-box;
+   }
+   img{
+      max-width:100%;
+      height:auto;
+   }
+   .card img{
+      width: 70%;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom:10px;
+   }
+   /*place the welcome heading above the image*/
+   .welcome-section{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap: 15px;
+   }
+   .welcome-section img{
+      width:100px;
+      max-width:900px;
+      height:auto;
+      display:block;
+
+   }
